@@ -35,6 +35,9 @@
                 <div class="small">
                     {hook h='displayNav1'}
                 </div>
+                <div class="w-100">
+                    {widget name='weather' display_data_header='true'}
+                 </div>
                 <div class="header-nav__right">
                     {hook h='displayNav2'}
                 </div>
