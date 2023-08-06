@@ -1,0 +1,130 @@
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css');
+
+.panel.panel-default {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.card-body{
+    padding-left: 25px ;
+}
+
+.card-header{
+    padding-left: 25px;
+}
+
+.custom-file{
+    margin-bottom: 2em !important;
+    margin-top: 1em !important;
+}
+
+.custom-file-label{
+    width: 100% !important;
+    text-align: left !important;
+    padding: .3em .5em .0em .5em !important;
+}
+
+#importBtn{
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    .panel.panel-default {
+        margin: 10px;
+    }
+    .panel-heading {
+        font-size: 18px;
+    }
+    .form-horizontal .control-label {
+        text-align: left;
+    }
+    .col-sm-offset-3 {
+        margin-left: 0;
+    }
+    .col-sm-9 {
+        width: 100%;
+    }
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.modal {
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+}
+
+.modal-content {
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.modal-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.3);
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.form-control-file{
+    cursor: pointer;
+}
+.form-control-file::-webkit-file-upload-button {
+    visibility: hidden;
+    opacity: 1 !important;
+}
+.form-control-file::before {
+    content: '{l s='Select File' mod='importcsv'}';
+    color: black;
+    display: inline-block;
+    background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
+}
+.form-control-file:hover::before {
+    border-color: black;
+}
+.form-control-file:active {
+    outline: 0;
+}
+.form-control-file:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+.serif{
+    font-family: 'serif';
+}

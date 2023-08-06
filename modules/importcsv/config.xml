@@ -1,0 +1,20 @@
+<module>
+    <name>importcsv</name>
+    <displayName><![CDATA[Special Import]]></displayName>
+    <description><![CDATA[Module to import products from CSV file.]]></description>
+    <version><![CDATA[1.0.0]]></version>
+    <author><![CDATA[Santiago Lavigna Jara]]></author>
+    <tab><![CDATA[administration]]></tab>
+    <is_configurable>0</is_configurable>
+    <need_instance>0</need_instance>
+    <dependencies>
+        <php>
+            <min>7.0.0</min>
+            <max>7.3.99</max>
+        </php>
+        <prestashop>
+            <min>1.7.6.9</min>
+            <max>1.7.9.99</max>
+        </prestashop>
+    </dependencies>
+</module>
