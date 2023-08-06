@@ -1,0 +1,26 @@
+version: '3'
+services:
+  prestashop:
+    image: prestashop/prestashop:1.7.6.9-7.2-apache
+    ports:
+      - "8080:80"
+    volumes:
+      - ./prestashop:/var/www/html
+    environment:
+      PS_INSTALL_AUTO: 0
+      DB_SERVER: db
+      DB_USER: root
+      DB_PASSWD: mysqL-s1
+      DB_NAME: prestashop
+      DB_CLEAR: 1
+    depends_on:
+      - db
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: mysqL-s1
+      MYSQL_DATABASE: prestashop
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+    ports:
+      - "3307:3306"
