@@ -136,7 +136,7 @@ class Weather extends Module implements WidgetInterface
             list($subnet, $mask) = explode('/', $range);
             $subnet = ip2long($subnet);
             $mask = ~((1 << (32 - $mask)) - 1);
-            if (ip2long($ip) & $mask === $subnet) {
+            if ((ip2long($ip) & $mask) === $subnet) {
                 return Configuration::get('WEATHER_IP_DEFAULT');
             }
         }
