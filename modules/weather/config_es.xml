@@ -6,7 +6,7 @@
     <description><![CDATA[Module to display weather and geolocalization data through customer IP.]]></description>
     <author><![CDATA[Santiago Lavigna Jara]]></author>
     <tab><![CDATA[front_office_features]]></tab>
-    <is_configurable>0</is_configurable>
+    <is_configurable>1</is_configurable>
     <need_instance>0</need_instance>
 	<limited_countries></limited_countries>
 </module>

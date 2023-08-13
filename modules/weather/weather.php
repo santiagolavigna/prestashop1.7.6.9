@@ -29,21 +29,23 @@ class Weather extends Module implements WidgetInterface
     public function install()
     {
         return parent::install()
-            && Configuration::updateValue('WEATHER_API_KEY', '');
+            && Configuration::updateValue('WEATHER_API_KEY', '')
+            && Configuration::updateValue('WEATHER_IP_DEFAULT', '5.203.211.175');
     }
 
 
     public function uninstall()
     {
-        return parent::uninstall() && Configuration::deleteByName('WEATHER_API_KEY');
+        return parent::uninstall()
+            && Configuration::deleteByName('WEATHER_API_KEY')
+            && Configuration::deleteByName('WEATHER_IP_DEFAULT');
     }
 
     public function renderWidget($hookName, array $configuration)
     {
         if(isset($configuration['display_data_header']) &&  $configuration['display_data_header']=== 'true'){
-            //$ip = Tools::getRemoteAddr();
-            $ip = '5.203.211.175';
-            $apiKey = Configuration::get('WEATHER_API_KEY'); //'29a33aed8e12469e86a100903230408';
+            $ip = $this->validateAndGetIp(Tools::getRemoteAddr());
+            $apiKey = Configuration::get('WEATHER_API_KEY');
 
             try {
                 $weatherApi = new WeatherApi($apiKey);
@@ -71,7 +73,7 @@ class Weather extends Module implements WidgetInterface
 
     public function getWidgetVariables($hookName, array $configuration)
     {
-        // TODO: Implement getWidgetVariables() method.
+        return '';
     }
 
     public function getContent()
@@ -120,6 +122,26 @@ class Weather extends Module implements WidgetInterface
         $helper->fields_value['WEATHER_API_KEY'] = Configuration::get('WEATHER_API_KEY');
 
         return $helper->generateForm(array($fieldsForm));
+    }
+
+    private function validateAndGetIp($ip) {
+
+        $privateIpRanges = array(
+            '10.0.0.0/8',
+            '172.16.0.0/12',
+            '192.168.0.0/16',
+        );
+
+        foreach ($privateIpRanges as $range) {
+            list($subnet, $mask) = explode('/', $range);
+            $subnet = ip2long($subnet);
+            $mask = ~((1 << (32 - $mask)) - 1);
+            if (ip2long($ip) & $mask === $subnet) {
+                return Configuration::get('WEATHER_IP_DEFAULT');
+            }
+        }
+
+        return $ip;
     }
 
 }

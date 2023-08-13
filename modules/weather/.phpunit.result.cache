@@ -1,0 +1,1 @@
+{"version":1,"defects":{"WeatherApiTest::testFetchData":4,"WeatherApiTest::testFetchDataInvalidIP":3},"times":{"MiModuloTest::testSum":0.001,"weather::testSum":0.001,"WeatherTest::testSum":0.002,"WeatherApiTest::testFetchData":0.001,"WeatherApiTest::testFetchDataInvalidIP":0.004}}
